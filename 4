@@ -1,0 +1,26 @@
+def hitung_kecepatan(cls):
+    class Mobil(cls):
+        def __init__(self, jenis, jarak_tempuh, waktu_tempuh):
+            super().__init__(jenis, jarak_tempuh, waktu_tempuh)
+        
+        def hitung_kecepatan_rata_rata(self):
+            return self.jarak_tempuh / self.waktu_tempuh
+    
+    return Mobil
+
+@hitung_kecepatan
+class Mobil:
+    def __init__(self, jenis, jarak_tempuh, waktu_tempuh):
+        self.jenis = jenis
+        self.jarak_tempuh = jarak_tempuh
+        self.waktu_tempuh = waktu_tempuh
+
+def main():
+    mobil1 = Mobil("Sedan", 100, 2) 
+    mobil2 = Mobil("Truk", 200, 4)   
+    
+    print(f"Kecepatan rata-rata mobil {mobil1.jenis}: {mobil1.hitung_kecepatan_rata_rata()} km/jam")
+    print(f"Kecepatan rata-rata mobil {mobil2.jenis}: {mobil2.hitung_kecepatan_rata_rata()} km/jam")
+
+if __name__ == "__main__":
+    main()
